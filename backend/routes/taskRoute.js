@@ -9,21 +9,24 @@ const {
   updateTask,
 } = require("../controllers/taskController");
 
+//router.route("/").get(getTasks).post(createTask);
+//router.route("/:id").get(getTask).patch(updateTask).delete(deleteTask);
+
 //Create a task
-router.post("/api/tasks", createTask);
+router.post("/", createTask);
 
 //get a single task
-router.get("/api/tasks/:id", getTask);
+router.get("/:id", getTask);
 //:id is a parameter (params)
 
 //Get all tasks
-router.get("/api/tasks", getTasks);
+router.get("/", getTasks);
 
 //delete a task
-router.delete("/api/tasks/:id", deleteTask);
+router.delete("/:id", deleteTask);
 
 //update a task
-router.put("/api/tasks/:id", updateTask);
+router.put("/:id", updateTask);
 //for put we need to put all the fields
 
 //for patch we need to put only the fields/properties that we want to update
