@@ -6,7 +6,9 @@ const Task = ({ task, index, deleteTask, getSingleTask, completeTask }) => {
   return (
     <div className={task.completed ? "task completed" : "task"}>
       <p>
-        <b>{index + 1} </b>
+        <span className="list-numbers">
+          <b>{index + 1}. </b>
+        </span>
         {task.name}
       </p>
       <div className="task-icons">

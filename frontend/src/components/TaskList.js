@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Task from "./Task";
 import axios from "axios";
 import loader from "../assets/reload-cat.gif";
+import { HiQueueList } from "react-icons/hi2";
 
 const SERVER_URL = "http://localhost:5000";
 const API_ENDPOINT = "/api/tasks";
@@ -32,7 +33,6 @@ const TaskList = () => {
     setisLoading(true);
     try {
       const { data } = await axios.get(`${apiUrl}`);
-      console.log(data);
       setTasks(data);
       setisLoading(false);
     } catch (error) {
@@ -140,7 +140,12 @@ const TaskList = () => {
 
   return (
     <div>
-      <h2>Task Manager</h2>
+      <a href="/">
+        <h2>
+          <HiQueueList /> Task Manager{" "}
+        </h2>
+      </a>
+
       <TaskForm
         name={name}
         handleInputChange={handleInputChange}
@@ -163,7 +168,7 @@ const TaskList = () => {
 
       {isLoading && (
         <div className="--flex-center">
-          <img src={loader} alt="loading" />
+          <img className="gif" src={loader} alt="loading" />
         </div>
       )}
       {!isLoading && tasks.length === 0 ? (
